@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 
+{#  Adds the slug to the title and capitalizes   #}
 {% block title %}{{ block.super}} - {{ slug|capfirst }}{% endblock %}
 
+{#  Added the slugify filter to convert any of the slugs generated #}
+{#  to a lowercase value and make consistent ID values.  #}
+{% block body-id %}{{ slug|slugify }}{% endblock %}
+
+{#  Page content goes here  #}
 {% block content %}
     {% include page %}
 {% endblock %}
