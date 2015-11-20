@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="{{ description|default:'Default prototype description' }}">
+    <meta name="keywords" content="{{ keywords|default:'prototype' }}">
     <title>{% block title %}Rapid Prototypes{% endblock %}</title>
     {% compress css %}
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
@@ -18,7 +20,8 @@
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <button class="navbar-toggle" type="button" data-toggle="collapse"
+                        data-target=".navbar-collapse">
                     <span class="sr-only">Toggle Navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -30,6 +33,9 @@
                 <ul class="nav navbar-nav">
                     <li {% if slug == 'index' %}class="active"{% endif %}>
                         <a href="/">Home</a>
+                    </li>
+                    <li {% if slug == 'pricing' %}class="active"{% endif %}>
+                        <a href="{% url 'page' 'pricing' %}">Pricing</a>
                     </li>
                     <li {% if slug == 'contact' %}class="active"{% endif %}>
                         <a href="{% url 'page' 'contact' %}">Contact</a>
